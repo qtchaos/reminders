@@ -3,14 +3,16 @@
   "id": "reminders",
   "version": "${version}",
   "name": "Reminders",
-  "description": "",
+  "description": "A fabric mod that gives you the power to keep track of reminders without tabbing out.",
   "authors": [
     "chaos"
   ],
   "contact": {
-    "repo": "https://github.com/qtchaos"
+    "homepage": "https://github.com/qtchaos/reminders",
+    "sources": "https://github.com/qtchaos/reminders",
+    "issues": "https://github.com/qtchaos/reminders/issues"
   },
-  "license": "MIT",
+  "license": "GPL-3.0 license",
   "icon": "assets/reminders/icon.png",
   "environment": "client",
   "entrypoints": {
