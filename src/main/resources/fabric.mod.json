@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "reminders",
+  "version": "${version}",
+  "name": "Reminders",
+  "description": "",
+  "authors": [
+    "chaos"
+  ],
+  "contact": {
+    "repo": "https://github.com/qtchaos"
+  },
+  "license": "MIT",
+  "icon": "assets/reminders/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.chaos.reminders.MainClient"
+    ]
+  },
+  "mixins": [
+    "reminders.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "fabric": "*",
+    "minecraft": "1.19.3"
+  }
+}
