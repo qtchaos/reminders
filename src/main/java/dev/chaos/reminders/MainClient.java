@@ -1,6 +1,7 @@
 package dev.chaos.reminders;
 
 import dev.chaos.reminders.event.ClientCommandHandler;
+import dev.chaos.reminders.event.KeyInputHandler;
 import dev.chaos.reminders.event.TickHandler;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -20,5 +21,6 @@ public class MainClient implements ClientModInitializer {
         LOGGER.info(L_MODID + " Registering tick handlers!");
         TickHandler.register();
         ClientCommandHandler.register();
+        KeyInputHandler.register();
     }
 }

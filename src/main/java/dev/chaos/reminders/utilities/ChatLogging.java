@@ -10,6 +10,7 @@ import static dev.chaos.reminders.SharedData.L_MODID;
 public class ChatLogging {
     public static final MinecraftClient client = MinecraftClient.getInstance();
     public static void log(String message) {
+        assert client.player != null;
         Text text = Text.of(L_MODID + ": ");
         MutableText mutableText = text.copyContentOnly();
         mutableText.formatted(Formatting.AQUA);
