@@ -12,7 +12,7 @@ import static dev.chaos.reminders.utilities.ChatLogging.log;
 import static dev.chaos.reminders.utilities.Toast.useToast;
 
 public class TickHandler {
-    protected static void notifyClient(MinecraftClient client) {
+    private static void notifyClient(MinecraftClient client) {
         log(REMIND_MESSAGE);
         client.getToastManager().add(useToast());
         client.getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 2F));
@@ -20,6 +20,10 @@ public class TickHandler {
     public static void register() {
         ClientTickEvents.START_WORLD_TICK.register((world) -> {
             MinecraftClient client = MinecraftClient.getInstance();
+            if (OUTDATED) {
+                log("You are using an outdated version of Reminders! Please update to the latest version.");
+                OUTDATED = false;
+            }
             if (SHOW_UI) {
                 client.setScreen(new CustomScreen(Text.of("Reminders")));
                 SHOW_UI = false;

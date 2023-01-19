@@ -51,7 +51,7 @@ public class Toast {
                 new Identifier("reminders", handlePath()),
                 null,
                 new AdvancementDisplay(
-                        new ItemStack(() -> Item.BLOCK_ITEMS.get(Blocks.BELL)),
+                        new ItemStack(Item.BLOCK_ITEMS.get(Blocks.BELL)),
                         Text.of(REMIND_MESSAGE),
                         Text.of(REMIND_MESSAGE),
                         null,
