@@ -23,15 +23,20 @@ public class Updates {
     }
     public static void checkForUpdates() throws IOException {
         JSONObject json = readJsonFromUrl();
-        String latestVersion = json.getString("version_number");
-        if (latestVersion != null) {
-            int latestVersionParsed = Integer.parseInt(latestVersion.replace(".", ""));
-            int currentVersionParsed = Integer.parseInt(VERSION.replace(".", ""));
-            if (currentVersionParsed < latestVersionParsed) {
-                OUTDATED = true;
-                LATEST_VERSION = latestVersion;
-                LOGGER.warn("You are using an outdated version of Reminders! Please update to " + latestVersion + "!");
+        if (json != null) {
+            String latestVersion = json.getString("version_number");
+            if (latestVersion != null) {
+                int latestVersionParsed = Integer.parseInt(latestVersion.replace(".", ""));
+                int currentVersionParsed = Integer.parseInt(VERSION.replace(".", ""));
+                if (currentVersionParsed < latestVersionParsed) {
+                    OUTDATED = true;
+                    LATEST_VERSION = latestVersion;
+                    LOGGER.warn("You are using an outdated version of Reminders! Please update to " + latestVersion + "!");
+                }
             }
+        } else {
+            LOGGER.warn("Failed to check for updates!");
+            LATEST_VERSION = VERSION;
         }
     }
 
@@ -49,6 +54,10 @@ public class Updates {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonText = readAll(rd);
             return new JSONObject(Objects.requireNonNull(matchRegex(jsonText)));
+        } catch (java.io.FileNotFoundException e) {
+            LOGGER.error("Failed to check for updates!");
+            e.printStackTrace();
+            return null;
         }
     }
 }
