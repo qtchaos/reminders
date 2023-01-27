@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 
 import static dev.chaos.reminders.MainClient.VERSION;
 import static dev.chaos.reminders.MainClient.LOGGER;
+import static dev.chaos.reminders.SharedData.LATEST_VERSION;
 import static dev.chaos.reminders.SharedData.OUTDATED;
 
 public class Updates {
@@ -24,8 +25,11 @@ public class Updates {
         JSONObject json = readJsonFromUrl();
         String latestVersion = json.getString("version_number");
         if (latestVersion != null) {
-            if (!latestVersion.equals(VERSION)) {
+            int latestVersionParsed = Integer.parseInt(latestVersion.replace(".", ""));
+            int currentVersionParsed = Integer.parseInt(VERSION.replace(".", ""));
+            if (currentVersionParsed < latestVersionParsed) {
                 OUTDATED = true;
+                LATEST_VERSION = latestVersion;
                 LOGGER.warn("You are using an outdated version of Reminders! Please update to " + latestVersion + "!");
             }
         }

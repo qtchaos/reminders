@@ -12,7 +12,7 @@ import static dev.chaos.reminders.utilities.ChatLogging.log;
 public class RemindCommand {
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {
         dispatcher.register(ClientCommandManager.literal("remind")
-            .then(ClientCommandManager.argument("time", IntegerArgumentType.integer(1, 100000))
+            .then(ClientCommandManager.argument("time", IntegerArgumentType.integer(1, 86400))
                 .then(ClientCommandManager.argument("message", StringArgumentType.greedyString())
                     .executes(context -> {
                         int time = IntegerArgumentType.getInteger(context, "time");

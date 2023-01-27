@@ -20,4 +20,13 @@ public class ChatLogging {
                     .formatted(formattingWhite))
         );
     }
+
+    public static void log(String message, boolean hiddenIdentifier) {
+        assert client.player != null;
+        if (hiddenIdentifier) {
+            client.player.sendMessage(Text.of(message));
+        } else {
+            log(message);
+        }
+    }
 }

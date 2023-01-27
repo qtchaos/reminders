@@ -13,7 +13,6 @@ import static dev.chaos.reminders.utilities.Toast.useToast;
 
 public class TickHandler {
     private static void notifyClient(MinecraftClient client) {
-        log(REMIND_MESSAGE);
         client.getToastManager().add(useToast());
         client.getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 2F));
     }

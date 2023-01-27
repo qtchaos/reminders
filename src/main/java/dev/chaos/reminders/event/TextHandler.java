@@ -17,6 +17,23 @@ public class TextHandler {
                 MinecraftClient.getInstance().textRenderer.drawWithShadow(matrices, "Reminders:", 2, 2, 0xFFFFFF);
                 MinecraftClient.getInstance().textRenderer.drawWithShadow(matrices, text, 2, 12, color);
             }
+            if (NOTE_TEXT.length() > 0) {
+                int temp_y = 32;
+                if (REMIND_IN_TICKS == 0) {
+                    temp_y = 2;
+                }
+
+                MinecraftClient.getInstance().textRenderer.drawWithShadow(matrices, "Note:", 2, temp_y, 0xFFFFFF);
+                String[] lines = NOTE_TEXT.split("(?<=\\G.{30})");
+                for (String line : lines) {
+                    if (line.charAt(0) == ' ') {
+                        line = line.substring(1);
+                    }
+                    MinecraftClient.getInstance().textRenderer.drawWithShadow(matrices, line, 2, temp_y + 10, 0xFFFFFF);
+                    temp_y += 10;
+                }
+            }
+
         });
     }
 
@@ -42,6 +59,21 @@ public class TextHandler {
             text = REMIND_MESSAGE;
         }
         int time = REMIND_IN_TICKS / 20 + 1;
-        return text + " " + time + "s";
+
+        return convertTime(time, text);
+    }
+
+    protected static String convertTime(int time, String text) {
+        int seconds = time % 60;
+        if (time >= 60) {
+            int minutes = time / 60 % 60;
+            if (time >= 3600) {
+                int hours = time / 3600;
+                text += " " + hours + "h";
+            }
+            text += " " + minutes + "m";
+        }
+        text += " " + seconds + "s";
+        return text;
     }
 }
