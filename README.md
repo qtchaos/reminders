@@ -1,5 +1,11 @@
 ![](https://github.com/qtchaos/reminders/blob/1.19.3/assets/large_example.png?raw=true)
-
+<a href="https://discord.gg/AyaZ5EkpMd">
+  <img alt="discord-singular" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/social/discord-singular_vector.svg">
+</a>
+<a href="https://modrinth.com/mod/reminders">
+  <img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg">
+</a>
+<br>
 <p align="center">A fabric mod that gives you the power to keep track of reminders <i>(and more!)</i> without tabbing out.</p>
 
 ### Usage
