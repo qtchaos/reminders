@@ -6,7 +6,7 @@
   <img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg">
 </a>
 <br>
-<div style="text-align: center;">A fabric mod that gives you the power to keep track of reminders <i>(and more!)</i> without tabbing out.</div>
+<p align="center">A fabric mod that gives you the power to keep track of reminders <i>(and more!)</i> without tabbing out.</p>
 
 ### Opening the UI
 You can open the UI with either the "O" key (this can be changed in the controls) or by using the `/reminders` command.
