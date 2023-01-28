@@ -5,8 +5,9 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 
 import static dev.chaos.reminders.client.MainClient.VERSION;
-import static dev.chaos.reminders.client.SharedData.LATEST_VERSION;
+import static dev.chaos.reminders.client.SharedData.SHOW_UI;
 import static dev.chaos.reminders.client.SharedData.OUTDATED;
+import static dev.chaos.reminders.client.SharedData.LATEST_VERSION;
 import static dev.chaos.reminders.client.utilities.ChatLogging.log;
 
 public class InfoCommand {
@@ -22,6 +23,12 @@ public class InfoCommand {
                     return 1;
                 })
             )
+        );
+        dispatcher.register(ClientCommandManager.literal("reminders")
+            .executes(context -> {
+                SHOW_UI = true;
+                return 1;
+            })
         );
     }
 }
