@@ -1,8 +1,11 @@
-package dev.chaos.reminders.utilities;
+package dev.chaos.reminders.client.utilities;
 
-import static dev.chaos.reminders.SharedData.*;
-import static dev.chaos.reminders.utilities.ChatLogging.client;
-import static dev.chaos.reminders.utilities.ChatLogging.log;
+import static dev.chaos.reminders.client.SharedData.REMIND_IN_TICKS;
+import static dev.chaos.reminders.client.SharedData.REMIND_MESSAGE;
+import static dev.chaos.reminders.client.SharedData.STORE_REMIND_IN_TICKS;
+import static dev.chaos.reminders.client.SharedData.LOOP_REMINDER;
+import static dev.chaos.reminders.client.utilities.ChatLogging.client;
+import static dev.chaos.reminders.client.utilities.ChatLogging.log;
 
 public class PreviousReminder {
     public static void setPreviousReminder() {

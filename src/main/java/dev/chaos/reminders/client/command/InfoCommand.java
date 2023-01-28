@@ -1,12 +1,13 @@
-package dev.chaos.reminders.command;
+package dev.chaos.reminders.client.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 
-import static dev.chaos.reminders.MainClient.VERSION;
-import static dev.chaos.reminders.SharedData.*;
-import static dev.chaos.reminders.utilities.ChatLogging.log;
+import static dev.chaos.reminders.client.MainClient.VERSION;
+import static dev.chaos.reminders.client.SharedData.LATEST_VERSION;
+import static dev.chaos.reminders.client.SharedData.OUTDATED;
+import static dev.chaos.reminders.client.utilities.ChatLogging.log;
 
 public class InfoCommand {
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {

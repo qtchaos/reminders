@@ -1,4 +1,4 @@
-package dev.chaos.reminders.utilities;
+package dev.chaos.reminders.client.utilities;
 
 import com.google.gson.JsonObject;
 import net.minecraft.advancement.*;
@@ -15,8 +15,10 @@ import net.minecraft.util.Identifier;
 import java.util.Map;
 
 
-import static dev.chaos.reminders.SharedData.*;
-import static dev.chaos.reminders.utilities.Random.getRandomString;
+import static dev.chaos.reminders.client.SharedData.LOOP_REMINDER;
+import static dev.chaos.reminders.client.SharedData.STORE_PATH;
+import static dev.chaos.reminders.client.SharedData.REMIND_MESSAGE;
+import static dev.chaos.reminders.client.utilities.Random.getRandomString;
 
 public class Toast {
 
@@ -32,7 +34,7 @@ public class Toast {
         }
     };
 
-    protected static String handlePath() {
+    private static String handlePath() {
         if (LOOP_REMINDER) {
             if (STORE_PATH.equals("")) {
                 STORE_PATH = getRandomString();
@@ -43,7 +45,7 @@ public class Toast {
         }
     }
 
-    protected static String[][] requirements = {{""}};
+    private static final String[][] requirements = {{""}};
     public static AdvancementToast useToast() {
         return new AdvancementToast(
             new Advancement(

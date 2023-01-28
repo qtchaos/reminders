@@ -1,9 +1,12 @@
-package dev.chaos.reminders.event;
+package dev.chaos.reminders.client.event;
 
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 
-import static dev.chaos.reminders.SharedData.*;
+import static dev.chaos.reminders.client.SharedData.NOTE_TEXT;
+import static dev.chaos.reminders.client.SharedData.REMIND_IN_TICKS;
+import static dev.chaos.reminders.client.SharedData.REMIND_MESSAGE;
+import static dev.chaos.reminders.client.SharedData.STORE_REMIND_IN_TICKS;
 
 public class TextHandler {
     public static void register() {
@@ -37,11 +40,11 @@ public class TextHandler {
         });
     }
 
-    protected static int calculatePercentage(int current) {
+    private static int calculatePercentage(int current) {
         return (int) ((double) current / (double) STORE_REMIND_IN_TICKS * 100);
     }
 
-    protected static int getColorFromTicks(int percentage) {
+    private static int getColorFromTicks(int percentage) {
         if (percentage > 50) {
             return 0x1aff00;
         } else if (percentage > 25) {
@@ -51,7 +54,7 @@ public class TextHandler {
         }
     }
 
-    protected static String getRemindMessage() {
+    private static String getRemindMessage() {
         String text;
         if (REMIND_MESSAGE.length() > 50) {
             text = REMIND_MESSAGE.substring(0, 50);
@@ -63,7 +66,7 @@ public class TextHandler {
         return convertTime(time, text);
     }
 
-    protected static String convertTime(int time, String text) {
+    private static String convertTime(int time, String text) {
         int seconds = time % 60;
         if (time >= 60) {
             int minutes = time / 60 % 60;

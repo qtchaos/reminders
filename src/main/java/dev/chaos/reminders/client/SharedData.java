@@ -1,8 +1,7 @@
-package dev.chaos.reminders;
+package dev.chaos.reminders.client;
 
 public class SharedData {
     public static final String MODID = "Reminders";
-    public static final String L_MODID = "[" + MODID + "]";
     public static boolean SHOW_UI = false;
     public static boolean OUTDATED = false;
     public static String LATEST_VERSION = "";

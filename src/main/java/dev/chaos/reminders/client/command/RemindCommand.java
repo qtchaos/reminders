@@ -1,4 +1,4 @@
-package dev.chaos.reminders.command;
+package dev.chaos.reminders.client.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -6,8 +6,9 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 
-import static dev.chaos.reminders.SharedData.*;
-import static dev.chaos.reminders.utilities.ChatLogging.log;
+import static dev.chaos.reminders.client.SharedData.REMIND_IN_TICKS;
+import static dev.chaos.reminders.client.SharedData.REMIND_MESSAGE;
+import static dev.chaos.reminders.client.SharedData.STORE_REMIND_IN_TICKS;
 
 public class RemindCommand {
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {
@@ -21,7 +22,6 @@ public class RemindCommand {
                         REMIND_IN_TICKS = time * 20;
                         REMIND_MESSAGE = message;
                         STORE_REMIND_IN_TICKS = REMIND_IN_TICKS;
-                        log("You will be reminded in " + time + " seconds.");
                         return 1;
                     })
                 )

@@ -1,15 +1,20 @@
-package dev.chaos.reminders.event;
+package dev.chaos.reminders.client.event;
 
-import dev.chaos.reminders.CustomScreen;
+import dev.chaos.reminders.client.CustomScreen;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 
-import static dev.chaos.reminders.SharedData.*;
-import static dev.chaos.reminders.utilities.ChatLogging.log;
-import static dev.chaos.reminders.utilities.Toast.useToast;
+
+import static dev.chaos.reminders.client.SharedData.SHOW_UI;
+import static dev.chaos.reminders.client.SharedData.OUTDATED;
+import static dev.chaos.reminders.client.SharedData.LOOP_REMINDER;
+import static dev.chaos.reminders.client.SharedData.REMIND_IN_TICKS;
+import static dev.chaos.reminders.client.SharedData.STORE_REMIND_IN_TICKS;
+import static dev.chaos.reminders.client.utilities.ChatLogging.log;
+import static dev.chaos.reminders.client.utilities.Toast.useToast;
 
 public class TickHandler {
     private static void notifyClient(MinecraftClient client) {

@@ -1,6 +1,6 @@
-package dev.chaos.reminders.event;
+package dev.chaos.reminders.client.event;
 
-import dev.chaos.reminders.SharedData;
+import static dev.chaos.reminders.client.SharedData.SHOW_UI;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
@@ -16,7 +16,7 @@ public class KeyInputHandler {
     public static void registerKeyInput() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (ReminderUIKey.wasPressed()) {
-                SharedData.SHOW_UI = true;
+                SHOW_UI = true;
             }
         });
     }

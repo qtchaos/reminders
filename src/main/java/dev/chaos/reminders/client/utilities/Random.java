@@ -1,4 +1,4 @@
-package dev.chaos.reminders.utilities;
+package dev.chaos.reminders.client.utilities;
 
 public class Random {
 

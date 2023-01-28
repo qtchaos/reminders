@@ -1,4 +1,4 @@
-package dev.chaos.reminders;
+package dev.chaos.reminders.client;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextWidget;
@@ -8,10 +8,10 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.util.Util;
 
-import static dev.chaos.reminders.utilities.PreviousReminder.loopPreviousReminder;
-import static dev.chaos.reminders.utilities.PreviousReminder.setPreviousReminder;
-import static dev.chaos.reminders.utilities.Reminder.cancelReminder;
-import static dev.chaos.reminders.SharedData.NOTE_TEXT;
+import static dev.chaos.reminders.client.utilities.PreviousReminder.loopPreviousReminder;
+import static dev.chaos.reminders.client.utilities.PreviousReminder.setPreviousReminder;
+import static dev.chaos.reminders.client.utilities.Reminder.cancelReminder;
+import static dev.chaos.reminders.client.SharedData.NOTE_TEXT;
 
 public class CustomScreen extends Screen {
     public CustomScreen(Text title) {
@@ -64,6 +64,7 @@ public class CustomScreen extends Screen {
         addDrawableChild(ButtonWidget.builder(Text.literal("Cancel reminder."), b -> cancelReminder())
                 .dimensions(width / 2 - buttonWidth, height / 2 + 16, buttonWidth * 2, 20).build());
 
+        // Top Right Social Buttons
         addDrawableChild(ButtonWidget.builder(Text.literal("Close"), b -> client.setScreen(null))
                 .dimensions(width - 10 - buttonWidth, 10, buttonWidth, 20).build());
 
@@ -76,6 +77,11 @@ public class CustomScreen extends Screen {
             Util.getOperatingSystem().open("https://github.com/qtchaos/reminders");
             client.setScreen(null);
         }).dimensions(width - 10 - buttonWidth, 54, buttonWidth, 20).build());
+
+        addDrawableChild(ButtonWidget.builder(Text.literal("Discord"), b -> {
+            Util.getOperatingSystem().open("https://discord.gg/AyaZ5EkpMd");
+            client.setScreen(null);
+        }).dimensions(width - 10 - buttonWidth, 76, buttonWidth, 20).build());
 
         addDrawableChild(new TextWidget(TEXTFIELD_X - 25, TEXTFIELD_Y - 20, 200, 20, Text.of("Write yourself some notes."), textRenderer));
 
